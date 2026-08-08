@@ -1,8 +1,13 @@
-import { AppShell } from '@/components/app-shell'
+import { AppShell } from "@/components/app-shell"
 
 export default function Page() {
-  return <AppShell />
+  return (
+    <>
+      <h1 style={{ color: "red" }}>
+        🔥 TEST GREGORY 🔥
+      </h1>
+
+      <AppShell />
+    </>
+  )
 }
-<h1 style={{color: "red"}}>
-🔥 TEST GREGORY 🔥
-</h1>
