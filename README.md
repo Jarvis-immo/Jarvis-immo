@@ -15,3 +15,6 @@ Here are some ideas to get you started:
 - ⚡ Fun fact: ...
 -->
 Test Gregory - ça marche
+<h1 style={{color: "red"}}>
+TEST GREGORY 🔥
+</h1>
