@@ -1,0 +1,166 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-chart-6: var(--chart-6);
+
+  --font-sans: var(--font-sans);
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+}
+
+:root {
+  color-scheme: dark;
+
+  /* Fond noir/bleu profond */
+  --background: oklch(0.16 0.03 264);
+  --foreground: oklch(0.97 0.01 260);
+
+  /* Cartes bleu nuit légèrement plus claires */
+  --card: oklch(0.21 0.035 264);
+  --card-foreground: oklch(0.97 0.01 260);
+  --popover: oklch(0.21 0.035 264);
+  --popover-foreground: oklch(0.97 0.01 260);
+
+  /* Accent bleu vif */
+  --primary: oklch(0.62 0.19 258);
+  --primary-foreground: oklch(0.99 0.005 260);
+
+  --secondary: oklch(0.27 0.035 264);
+  --secondary-foreground: oklch(0.97 0.01 260);
+  --muted: oklch(0.27 0.035 264);
+  --muted-foreground: oklch(0.68 0.02 262);
+  --accent: oklch(0.3 0.05 260);
+  --accent-foreground: oklch(0.97 0.01 260);
+
+  --destructive: oklch(0.63 0.21 22);
+  --destructive-foreground: oklch(0.99 0.005 260);
+
+  /* Vert (loyer payé) */
+  --success: oklch(0.7 0.16 155);
+  --success-foreground: oklch(0.16 0.03 264);
+
+  /* Orange/ambre (travaux, en attente) */
+  --warning: oklch(0.78 0.15 75);
+  --warning-foreground: oklch(0.16 0.03 264);
+
+  --border: oklch(1 0 0 / 8%);
+  --input: oklch(1 0 0 / 12%);
+  --ring: oklch(0.62 0.19 258);
+
+  /* Palette graphiques (bleu, vert, ambre, rouge, violet, cyan) */
+  --chart-1: oklch(0.62 0.19 258);
+  --chart-2: oklch(0.7 0.16 155);
+  --chart-3: oklch(0.78 0.15 75);
+  --chart-4: oklch(0.63 0.21 22);
+  --chart-5: oklch(0.65 0.19 300);
+  --chart-6: oklch(0.72 0.13 200);
+
+  --radius: 1rem;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@keyframes just-paid-pop {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.08);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.just-paid {
+  animation: just-paid-pop 0.35s ease-out;
+}
+
+@keyframes page-enter {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-enter {
+  animation: page-enter 0.28s ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-enter {
+    animation: none;
+  }
+}
+
+.input-base {
+  width: 100%;
+  border-radius: 0.75rem;
+  background-color: var(--secondary);
+  padding: 0.6rem 0.75rem;
+  font-size: 0.875rem;
+  color: var(--foreground);
+  outline: none;
+  border: 1px solid var(--border);
+  transition: border-color 0.15s ease;
+}
+
+.input-base::placeholder {
+  color: var(--muted-foreground);
+}
+
+.input-base:focus {
+  border-color: var(--ring);
+}
