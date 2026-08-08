@@ -14,7 +14,7 @@ Here are some ideas to get you started:
 - 😄 Pronouns: ...
 - ⚡ Fun fact: ...
 -->
-Test Gregory - ça marche
+Test Gregory - ça marche BB
 <h1 style={{color: "red"}}>
 TEST GREGORY 🔥
 </h1>
